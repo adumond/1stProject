@@ -3,7 +3,7 @@
   max-width: 2000px;
   min-width: 100px;
 }
-body {
+article {
   margin: 50px;
 }
 .UserInputBox .control {
