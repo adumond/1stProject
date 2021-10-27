@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <title>Stock Comparision</title>
   </head>
   <body>
@@ -76,13 +77,25 @@
       </nav>
     </header>
     <section>
-      <div class="control">
-        <input
-          class="input is-focused"
-          type="text"
-          placeholder="Enter Stock Ticker Here"
-        />
-      </div>
+      <article class="UserInputBox">
+        <div class="control">
+          <input
+            class="input is-focused"
+            type="text"
+            placeholder="Enter Stock Ticker Here"
+          />
+        </div>
+        <div class="select is-multiple">
+          <select multiple size="6">
+            <option value="P/E Ratio">P/E Ratio</option>
+            <option value="PEG Ratio">PEG Ratio</option>
+            <option value="Cash Ratio">Cash Ratio</option>
+            <option value="Debt Equity Ratio">Debt Equity Ratio</option>
+            <option value="Current Ratio">Current Ratio</option>
+            <option value="Payout Ratio">Payout Ratio</option>
+          </select>
+        </div>
+      </article>
     </section>
   </body>
 </html>
