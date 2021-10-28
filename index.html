@@ -79,12 +79,13 @@
     <section>
       <article class="UserInputBox">
         <div class="control">
-          <input id="userInputTicker"
+          <input
+            id="userInputTicker"
             class="input is-focused"
             type="text"
             placeholder="Enter Stock Ticker Here"
           />
-          <button id='submitButton'>Submit</button>
+          <button id="submitButton">Submit</button>
         </div>
         <div class="select is-multiple">
           <select multiple size="6">
@@ -101,8 +102,8 @@
         <table class="table">
           <thead>
             <tr>
-              <th><abbr title="Stock Ticker">Ticker</abbr></th>
-              <th>Company</th>
+              <th><abbr title="stockTicker">Ticker</abbr></th>
+              <th class="company">Company</th>
               <th><abbr title="Market Cap">Market Cap</abbr></th>
               <th><abbr title="Industry Category">Category</abbr></th>
               <th><abbr title="P/E Ratio">P/E</abbr></th>
@@ -131,26 +132,24 @@
           </tfoot>
           <tbody>
             <tr class="is-selected">
-              <th>Tick 1</th>
-              <td>
-                <a
-                  href="#"
-                  title="Company 1"
+              <th id="ticker">Tick 1</th>
+              <td id="company">
+                <a id="inputCompany" title="Company 1" target="blank"
                   >Company 1</a
                 >
                 <strong>(Input)</strong>
               </td>
-              <td id = MarketCap>38</td>
-              <td id = Category>23</td>
-              <td id = P/E>12</td>
-              <td id = PEG>3</td>
-              <td id = Cash>68</td>
-              <td id = Debt/Equity>36</td>
-              <td id = Current>+32</td>
-              <td id = Payout>81</td>
-              <td id = Rating>Buy</td>
+              <td id="MarketCap">38</td>
+              <td id="Category">23</td>
+              <td id="PE">12</td>
+              <td id="PEG">3</td>
+              <td id="Cash">68</td>
+              <td id="DebtEquity">36</td>
+              <td id="Current">+32</td>
+              <td id="Payout">81</td>
+              <td id="Rating">Buy</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <th>Tick 2</th>
               <td>
                 <a
@@ -328,8 +327,8 @@
               <td id = Debt/Equity>36</td>
               <td id = Current>+32</td>
               <td id = Payout>81</td>
-              <td id = Rating>Buy</td>
-            </tr>
+              <td id = Rating>Buy</td> -->
+            <!-- </tr> -->
           </tbody>
         </table>
       </article>
