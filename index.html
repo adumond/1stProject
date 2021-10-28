@@ -80,10 +80,12 @@
       <article class="UserInputBox">
         <div class="control">
           <input
+            id="userInputTicker"
             class="input is-focused"
             type="text"
             placeholder="Enter Stock Ticker Here"
           />
+          <button id="submitButton">Submit</button>
         </div>
         <div class="select is-multiple">
           <select multiple size="6">
@@ -96,6 +98,241 @@
           </select>
         </div>
       </article>
+      <article class="API-Output">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><abbr title="stockTicker">Ticker</abbr></th>
+              <th class="company">Company</th>
+              <th><abbr title="Market Cap">Market Cap</abbr></th>
+              <th><abbr title="Industry Category">Category</abbr></th>
+              <th><abbr title="P/E Ratio">P/E</abbr></th>
+              <th><abbr title="PEG Ratio">PEG</abbr></th>
+              <th><abbr title="Cash Ratio">Cash</abbr></th>
+              <th><abbr title="Debt Equity Ratio"> Debt/Equity </abbr></th>
+              <th><abbr title="Current Ratio">Current</abbr></th>
+              <th><abbr title="Payout Ratio">Payout</abbr></th>
+              <th>Rating</th>
+              <th>Recommendation</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th><abbr title="Stock Ticker">Ticker</abbr></th>
+              <th>Company</th>
+              <th><abbr title="Market Cap">Market Cap</abbr></th>
+              <th><abbr title="Industry Category">Category</abbr></th>
+              <th><abbr title="P/E Ratio">P/E</abbr></th>
+              <th><abbr title="PEG Ratio">PEG</abbr></th>
+              <th><abbr title="Cash Ratio">Cash</abbr></th>
+              <th><abbr title="Debt Equity Ratio"> Debt/Equity </abbr></th>
+              <th><abbr title="Current Ratio">Current</abbr></th>
+              <th><abbr title="Payout Ratio">Payout</abbr></th>
+              <th>Rating</th>
+              <th>Recommendation</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr class="is-selected">
+              <th id="ticker"></th>
+              <td id="company">
+                <a id="inputCompany" title="companyLink" target="blank"></a>
+              </td>
+              <td id="MarketCap"></td>
+              <td id="Category"></td>
+              <td id="PE"></td>
+              <td id="PEG"></td>
+              <td id="Cash"></td>
+              <td id="DebtEquity"></td>
+              <td id="Current"></td>
+              <td id="Payout"></td>
+              <td id="Rating"></td>
+              <td id="Recommendation"></td>
+            </tr>
+            <!-- <tr>
+              <th>Tick 2</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 2"
+                  >Company 2</a
+                >
+          
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 3</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 3"
+                  >Company 3</a
+                >
+               
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 4</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 4"
+                  >Company 4</a
+                >
+                
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 5</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 5"
+                  >Company 5</a
+                >
+                
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 6</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 6"
+                  >Company 6</a
+                >
+                
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 7</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 7"
+                  >Company 7</a
+                >
+                
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 8</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 8"
+                  >Company 8</a
+                >
+                
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 9</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 9"
+                  >Company 9</a
+                >
+                
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td>
+            </tr>
+            <tr>
+              <th>Tick 10</th>
+              <td>
+                <a
+                  href="#"
+                  title="Company 10"
+                  >Company 10</a
+                >
+                
+              </td>
+              <td id = MarketCap>38</td>
+              <td id = Category>23</td>
+              <td id = P/E>12</td>
+              <td id = PEG>3</td>
+              <td id = Cash>68</td>
+              <td id = Debt/Equity>36</td>
+              <td id = Current>+32</td>
+              <td id = Payout>81</td>
+              <td id = Rating>Buy</td> -->
+            <!-- </tr> -->
+          </tbody>
+        </table>
+      </article>
     </section>
+    <script src="Assets/JS/Script.js"></script>
   </body>
 </html>
