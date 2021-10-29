@@ -8,10 +8,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <title>Stock Comparision</title>
   </head>
   <body>
+    <!-- logo in top left corner of the nav bar -->
     <header>
       <nav class="navbar is-transparent">
         <div class="navbar-brand">
@@ -24,7 +25,7 @@
             />
           </a>
         </div>
-
+        <!-- links with dropdown in the nav bar -->
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-start">
             <a class="navbar-item" href="#"> Home </a>
@@ -48,6 +49,7 @@
       </nav>
     </header>
     <main>
+      <!-- logo centered on the page just below the nav bar at the top of the main page -->
       <section>
         <div id="logo">
           <img
@@ -57,7 +59,7 @@
         </div>
       </section>
       <section>
-        <!-- User stock ticker input box and submit button -->
+        <!-- stock ticker input box and submit button -->
         <article class="UserInputBox">
           <div class="control">
             <input
@@ -106,6 +108,7 @@
                   <th>Recommendation</th>
                 </tr>
               </tfoot>
+              <!-- table body linked to the  -->
               <tbody id="table-body"></tbody>
             </table>
           </div>
