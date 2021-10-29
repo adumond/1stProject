@@ -1,16 +1,38 @@
 .UserInputBox {
-  border: 3px solid red;
   max-width: 2000px;
-  min-width: 100px;
 }
-article {
-  margin: 100px;
+main {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  position: relative;
+  padding: 10px;
 }
-.UserInputBox .control {
-  border: 3px solid red;
-  display: inline-flex;
+/* .UserInputBox {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+} */
+#UserInputTicker {
+  display: block;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 100%;
 }
-.UserInputBox .select {
-  border: 3px solid red;
-  display: inline-flex;
+
+body {
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255),
+    rgb(157, 207, 255),
+    rgb(99, 171, 219)
+  );
+}
+footer {
+  display: inline-block;
+  margin-left: 30%;
+  margin-right: 30%;
 }

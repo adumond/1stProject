@@ -1,18 +1,5 @@
 var userTickerInput = document.querySelector("#userInputTicker");
 var submitButton = document.querySelector("#submitButton");
-var mCap = document.querySelector("#MarketCap");
-var ticker = document.querySelector("#ticker");
-var linkedCompany = document.querySelector("#inputCompany");
-var companyname = document.querySelector("#company");
-var pe = document.querySelector("#PE");
-var peg = document.querySelector("#PEG");
-var cash = document.querySelector("#Cash");
-var debtEquity = document.querySelector("#DebtEquity");
-var current = document.querySelector("#Current");
-var payout = document.querySelector("#Payout");
-var rating = document.querySelector("#Rating");
-var rec = document.querySelector("#Recommendation");
-var industry = document.querySelector("#Category");
 var currentStock = {};
 var clearButton = document.querySelector("#clearLocalStorage");
 var localStorageKey = "currentStocks";
@@ -26,7 +13,7 @@ async function buttonClick() {
   await profileapi();
   createTableEntry(currentStock);
 }
-
+// Retrieves financial info about the stock from the Quote API and adds them to the current stock object
 async function searchTicker() {
   console.log(userTickerInput.value);
   return fetch(
@@ -51,6 +38,8 @@ async function searchTicker() {
       currentStock.pe = data[0].pe;
     });
 }
+
+// Retrieves financial ratio's from the Ratio API and adds them to the current stock object
 async function ratioapi() {
   return fetch(
     "https://financialmodelingprep.com/api/v3/ratios/" +
@@ -75,7 +64,7 @@ async function ratioapi() {
       currentStock.payout = data[0].payoutRatio;
     });
 }
-
+// Retrieves financial rating's from the Rating API and adds them to the current stock object
 async function ratingapi() {
   return fetch(
     "https://financialmodelingprep.com/api/v3/rating/" +
@@ -115,12 +104,12 @@ async function profileapi() {
       console.log(data);
       //Added the stock's industry to the currentStock object
       currentStock.industry = data[0].industry;
-      //renderLastSearch();
+
       saveToLocalStorage();
       getFromLocalStorage();
     });
 }
-
+// Retrieves the current stock object and displays the object as an array on the html table
 function renderLastSearch() {
   console.log(currentStock);
   // display stock info on the page
@@ -144,6 +133,7 @@ function renderLastSearch() {
   industry.textContent = currentStock.industry;
 }
 
+//function that adds the currentStock to local storage in an array
 function saveToLocalStorage() {
   var localStorageStocks = getFromLocalStorage();
   if (!localStorageStocks) {
@@ -152,28 +142,12 @@ function saveToLocalStorage() {
   localStorageStocks.push(currentStock);
   localStorage.setItem(localStorageKey, JSON.stringify(localStorageStocks));
 }
-
+//function that looks in the local storage for
 function getFromLocalStorage() {
   return JSON.parse(localStorage.getItem(localStorageKey));
 }
-
+//Creates a new row in the table for the currentStock object and adds each desired value from the apis into the appropiate columns on the table
 function createTableEntry(currentStock) {
-  //     <tr class="is-selected">
-  //     <th id="ticker"></th>
-  //     <td id="company">
-  //       <a id="inputCompany" title="companyLink" target="blank"></a>
-  //     </td>
-  //     <td id="MarketCap"></td>
-  //     <td id="Category"></td>
-  //     <td id="PE"></td>
-  //     <td id="PEG"></td>
-  //     <td id="Cash"></td>
-  //     <td id="DebtEquity"></td>
-  //     <td id="Current"></td>
-  //     <td id="Payout"></td>
-  //     <td id="Rating"></td>
-  //     <td id="Recommendation"></td>
-  //   </tr>
   isSelected = document.createElement("tr");
 
   ticker = document.createElement("th");
@@ -234,7 +208,7 @@ function createTableEntry(currentStock) {
 
   document.getElementById("table-body").prepend(isSelected);
 }
-
+//Uses the current stock objects saved in the local storage to populate the rows on the table
 function populateTableFromLocalStorage() {
   currentStocks = getFromLocalStorage();
   if (currentStocks) {
@@ -243,12 +217,13 @@ function populateTableFromLocalStorage() {
     }
   }
 }
-
+//function that clears the local storage and refreshes the page to clear the table
 function clearButtonClick() {
   localStorage.removeItem(localStorageKey);
   location.reload();
 }
-
+//activates the clearButtonClick fuction when the clearButton is pressed by the user
 clearButton.addEventListener("click", clearButtonClick);
+//activates the buttonClick function when the users clicks on the submitButton
 submitButton.addEventListener("click", buttonClick);
 populateTableFromLocalStorage();
