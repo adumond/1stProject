@@ -18,7 +18,7 @@ async function searchTicker() {
   console.log(userTickerInput.value);
   return fetch(
     "https://financialmodelingprep.com/api/v3/quote/" +
-      userTickerInput.value +
+      userTickerInput.value.toUpperCase() +
       "?apikey=2d1a1c7c741d940e02d0caa1d05e8726",
     {
       method: "GET", //GET is the default.
@@ -43,7 +43,7 @@ async function searchTicker() {
 async function ratioapi() {
   return fetch(
     "https://financialmodelingprep.com/api/v3/ratios/" +
-      userTickerInput.value +
+      userTickerInput.value.toUpperCase() +
       "?apikey=2d1a1c7c741d940e02d0caa1d05e8726",
     {
       method: "GET", //GET is the default.
@@ -68,7 +68,7 @@ async function ratioapi() {
 async function ratingapi() {
   return fetch(
     "https://financialmodelingprep.com/api/v3/rating/" +
-      userTickerInput.value +
+      userTickerInput.value.toUpperCase() +
       "?apikey=2d1a1c7c741d940e02d0caa1d05e8726",
     {
       method: "GET", //GET is the default.
@@ -89,7 +89,7 @@ async function ratingapi() {
 async function profileapi() {
   return fetch(
     "https://financialmodelingprep.com/api/v3/profile/" +
-      userTickerInput.value +
+      userTickerInput.value.toUpperCase() +
       "?apikey=2d1a1c7c741d940e02d0caa1d05e8726",
     {
       method: "GET", //GET is the default.
